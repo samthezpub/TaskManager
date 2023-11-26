@@ -1,6 +1,7 @@
-package com.example.taskmanager;
+package com.example.taskmanager.Models;
 
-import lombok.Data;
+import com.example.taskmanager.Interfaces.ITask;
+import com.example.taskmanager.Enums.StatusEnum;
 import lombok.Getter;
 
 @Getter

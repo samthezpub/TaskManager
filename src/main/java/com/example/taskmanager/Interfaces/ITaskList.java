@@ -1,7 +1,10 @@
-package com.example.taskmanager;
+package com.example.taskmanager.Interfaces;
+
+import com.example.taskmanager.Models.Task;
+import com.example.taskmanager.Exceptions.NotFoundException;
+import com.example.taskmanager.Enums.StatusEnum;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public interface ITaskList {
     public void addTask(Task task);

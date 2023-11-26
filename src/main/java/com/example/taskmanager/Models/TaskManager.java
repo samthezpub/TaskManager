@@ -1,9 +1,16 @@
-package com.example.taskmanager;
+package com.example.taskmanager.Models;
 
-import java.lang.reflect.Array;
+import com.example.taskmanager.Enums.StatusEnum;
+import com.example.taskmanager.Exceptions.NotFoundException;
+import com.example.taskmanager.Interfaces.ITaskManager;
+import com.example.taskmanager.Models.Task;
+import com.example.taskmanager.Models.TaskList;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class TaskManager implements ITaskManager {
 
     private List<TaskList> taskLists = new ArrayList<>();
@@ -25,7 +32,7 @@ public class TaskManager implements ITaskManager {
         try {
             findTaskList(taskList).addTask(task);
         } catch (NotFoundException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 
@@ -34,7 +41,7 @@ public class TaskManager implements ITaskManager {
         try {
             findTaskList(taskList).changeStatus(task, statusEnum);
         } catch (NotFoundException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
 
     }
@@ -44,7 +51,7 @@ public class TaskManager implements ITaskManager {
         try {
             findTaskList(taskList).deleteTask(task);
         } catch (NotFoundException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 
@@ -53,7 +60,7 @@ public class TaskManager implements ITaskManager {
         try {
             return findTaskList(taskList).getFilteredTasksByStatus(status);
         } catch (NotFoundException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
         return new ArrayList<Task>(0);
     }

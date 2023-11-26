@@ -1,5 +1,10 @@
 package com.example.taskmanager;
 
+import com.example.taskmanager.Enums.StatusEnum;
+import com.example.taskmanager.Models.DefaultTask;
+import com.example.taskmanager.Models.DefaultTaskList;
+import com.example.taskmanager.Models.Task;
+import com.example.taskmanager.Models.TaskManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -20,6 +25,9 @@ public class TaskManagerApplication {
         taskManager.addTask(defaultTaskList, defaultTask);
         taskManager.addTask(defaultTaskList,secondDefaultTask);
         taskManager.addTask(defaultTaskList,inProgressDefaultTask);
+
+        // Для вызова исключения
+        taskManager.addTask(new DefaultTaskList("Ошибочный"), secondDefaultTask);
 
         for (Task task: taskManager.getFilteredTasksByStatus(defaultTaskList, StatusEnum.INPROGRESS)) {
             System.out.println(task.toString());

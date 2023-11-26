@@ -1,4 +1,8 @@
-package com.example.taskmanager;
+package com.example.taskmanager.Models;
+
+import com.example.taskmanager.Interfaces.ITaskList;
+import com.example.taskmanager.Exceptions.NotFoundException;
+import com.example.taskmanager.Enums.StatusEnum;
 
 import java.util.ArrayList;
 import java.util.List;

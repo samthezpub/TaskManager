@@ -1,4 +1,4 @@
-package com.example.taskmanager;
+package com.example.taskmanager.Exceptions;
 
 public class NotFoundException extends Exception{
     public NotFoundException(String message) {
